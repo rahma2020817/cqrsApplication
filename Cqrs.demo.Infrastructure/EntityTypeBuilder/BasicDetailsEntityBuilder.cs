@@ -10,10 +10,10 @@ public class BasicDetailsEntityBuilder : IEntityTypeConfiguration<BasicInfo>, IE
     
 public void Configure(EntityTypeBuilder<BasicInfo> builder)
 {
-    // builder.ToTable(TableName).HasKey(p => p.);
+    builder.ToTable(TableName);
 }
 
 
-public string TableName => "Informations";
+public string TableName => "UserInformations";
 
 }

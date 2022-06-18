@@ -9,6 +9,7 @@ public class PostEntityTypeBuilder : IEntityTypeConfiguration<Post>, IEntityTabl
 {
     public void Configure(EntityTypeBuilder<Post> builder)
     {
+        builder.ToTable(TableName);
         builder.ToTable(TableName).HasKey(p => p.PostId);
     }
 

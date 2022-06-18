@@ -7,16 +7,19 @@ namespace Cqrs.demo.Infrastructure;
 
 public class PostContext : DbContext
 {
+    public DbSet<Post> Posts { get; set; }
+    public DbSet<UserProfile> UserProfiles { get; set; }
+
     public PostContext(DbContextOptions<PostContext> options) : base(options)
     {
         
     }
-    
-    public DbSet<Post> Posts { get; set; }
-    public DbSet<UserProfile> UserProfiles { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new PostEntityTypeBuilder());
+        modelBuilder.ApplyConfiguration(new PostCommentEntityBuilder());
+        modelBuilder.ApplyConfiguration(new PostInteractionEntityBuilder());
+        modelBuilder.ApplyConfiguration(new UserProfileConfig());
     }
 }
