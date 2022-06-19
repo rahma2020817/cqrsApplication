@@ -2,5 +2,10 @@
 
 public enum InteractionType
 {
+    Dislike,
+    Like,
+    Haha,
+    Love,
+    Angry
     
 }

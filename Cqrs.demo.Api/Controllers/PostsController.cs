@@ -1,6 +1,18 @@
-﻿namespace Cqrs.demo.Api.Controllers;
+﻿using Cqrs.demo.Core.Models;
+using Microsoft.AspNetCore.Mvc;
 
-public class PostsController
+namespace Cqrs.demo.Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class PostsController : ControllerBase
 {
-    
+
+    [HttpGet]
+    [Route("id")]
+    public ActionResult<PostDto> GetById(int id)
+    {
+        var post = new PostDto { Id = id, Text = "hello" };
+        return Ok(post);
+    }
 }
