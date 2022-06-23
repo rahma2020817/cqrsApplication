@@ -11,9 +11,10 @@ public class BasicDetailsEntityBuilder : IEntityTypeConfiguration<BasicInfo>, IE
 public void Configure(EntityTypeBuilder<BasicInfo> builder)
 {
     builder.ToTable(TableName);
+    
 }
 
 
-public string TableName => "UserInformations";
+public string TableName => "UserDetails";
 
 }

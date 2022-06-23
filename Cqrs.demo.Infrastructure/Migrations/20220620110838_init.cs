@@ -36,8 +36,8 @@ namespace Cqrs.demo.Infrastructure.Migrations
                     PostId = table.Column<Guid>(type: "uuid", nullable: false),
                     UserProfileId = table.Column<Guid>(type: "uuid", nullable: false),
                     TextContent = table.Column<string>(type: "text", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)"),
+                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)")
                 },
                 constraints: table =>
                 {
@@ -58,8 +58,8 @@ namespace Cqrs.demo.Infrastructure.Migrations
                     PostId = table.Column<Guid>(type: "uuid", nullable: false),
                     Text = table.Column<string>(type: "text", nullable: false),
                     UserProfileId = table.Column<Guid>(type: "uuid", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)"),
+                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)")
                 },
                 constraints: table =>
                 {
@@ -78,7 +78,9 @@ namespace Cqrs.demo.Infrastructure.Migrations
                 {
                     InteractionId = table.Column<Guid>(type: "uuid", nullable: false),
                     PostId = table.Column<Guid>(type: "uuid", nullable: false),
-                    InteractionType = table.Column<int>(type: "integer", nullable: false)
+                    InteractionType = table.Column<int>(type: "integer", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)"),
+                    LastModified = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP(20)")
                 },
                 constraints: table =>
                 {

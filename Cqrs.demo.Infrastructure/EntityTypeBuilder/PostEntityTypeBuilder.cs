@@ -11,6 +11,13 @@ public class PostEntityTypeBuilder : IEntityTypeConfiguration<Post>, IEntityTabl
     {
         builder.ToTable(TableName);
         builder.ToTable(TableName).HasKey(p => p.PostId);
+        builder.Property(x => x.CreatedDate)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnAdd();
+        
+        builder.Property(x => x.LastModified)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnUpdate();
     }
 
 

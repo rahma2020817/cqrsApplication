@@ -11,6 +11,13 @@ public class PostInteractionEntityBuilder : IEntityTypeConfiguration<PostInterac
     {
         builder.ToTable(TableName);
         builder.HasKey(pi => pi.InteractionId);
+        builder.Property(x => x.CreatedDate)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnAdd();
+        
+        builder.Property(x => x.LastModified)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnUpdate();
     }
 
     public string TableName => "Interactions";

@@ -29,10 +29,14 @@ namespace Cqrs.demo.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
 
                     b.Property<DateTime>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
 
                     b.Property<string>("TextContent")
                         .IsRequired()
@@ -55,10 +59,14 @@ namespace Cqrs.demo.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
 
                     b.Property<DateTime>("LastModified")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
 
                     b.Property<Guid>("PostId")
                         .HasColumnType("uuid");
@@ -83,8 +91,18 @@ namespace Cqrs.demo.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
+
                     b.Property<int>("InteractionType")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("LastModified")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP(20)");
 
                     b.Property<Guid>("PostId")
                         .HasColumnType("uuid");

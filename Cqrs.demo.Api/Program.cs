@@ -1,4 +1,9 @@
+using Cqrs.demo.Core.Mapping;
+
+using Cqrs.demo.Core.UserProfiles.Queries;
+
 using Cqrs.demo.Infrastructure;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +20,9 @@ builder.Services.AddDbContext<PostContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostDb"));
 });
+builder.Services.AddMediatR(typeof(GetAllUserProfiles));
 
+builder.Services.AddTransient<UserProfileMapper>();
 
 var app = builder.Build();
 

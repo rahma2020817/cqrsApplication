@@ -7,9 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="8.1.0" />
-        <PackageReference Include="AutoMapper" Version="8.1.1" />
-      <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
+       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+       <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -19,13 +18,11 @@
       <Folder Include="Posts\Commands" />
       <Folder Include="Posts\Queries" />
       <Folder Include="Posts\QueryHandlers" />
-      <Folder Include="UserProfiles\CommandHandlers" />
-      <Folder Include="UserProfiles\Queries" />
-      <Folder Include="UserProfiles\QueryHandlers" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Cqrs.demo.Domain\Cqrs.demo.Domain.csproj" />
+      <ProjectReference Include="..\Cqrs.demo.Infrastructure\Cqrs.demo.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

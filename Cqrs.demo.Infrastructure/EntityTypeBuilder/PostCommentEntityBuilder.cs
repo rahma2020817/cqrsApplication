@@ -13,6 +13,13 @@ public class PostCommentEntityBuilder : IEntityTypeConfiguration<PostComment>, I
     {
         builder.ToTable(TableName);
         builder.HasKey(pc => pc.CommentId);
+        builder.Property(x => x.CreatedDate)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnAdd();
+        
+        builder.Property(x => x.LastModified)
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(20)")
+            .ValueGeneratedOnUpdate();
     }
     
 }

@@ -5,6 +5,9 @@ public class PostInteraction
     public Guid InteractionId { get; private set; }
     public Guid PostId { get; private set; }
     public InteractionType InteractionType { get; private set; }
+    public DateTime CreatedDate { get;  private set; }
+    public DateTime LastModified { get; private set; }
+
 
     private PostInteraction()
     {
